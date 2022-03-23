@@ -6,14 +6,21 @@ public class Main {
 	Robot r = new Robot(b); // init robot and test tileFront
 	Card c = new Card();
 	Player p = new Player();
+	Game g = new Game();
 	b.makeBoard();
 	b.printBoard();
+	
+	System.out.println("Direction: " + r.getDir() + " Col: " + r.getRobotx() + " Row: " + r.getRoboty());
+
 	
 	c.makeCards();
 	c.printCard();
 	p.readHand(c);
+	g.execCards(p, r, b);
 
-	//		System.out.println(b.getTileUnder(r.getRoboty(), r.getRobotx())); // test for tile under
+	System.out.println("Direction: " + r.getDir() + " Col: " + r.getRobotx() + " Row: " + r.getRoboty());
+
+//	System.out.println("The tile under is: " + r.getTileUnder(b)); // test for tile under
 
 
 //	r.setRobotx(0);

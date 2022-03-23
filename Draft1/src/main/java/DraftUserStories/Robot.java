@@ -59,26 +59,35 @@ public class Robot {
     	} else if(r == 2) {
     		System.out.println("Robot made a U-turn");
     	}
-    	setDir((getDir() - r)%4); // left is 1, right is 3
-
+//    	System.out.println(getDir());
+    	setDir((getDir() + r)%4); // left is 1, right is 3
+//    	System.out.println(getDir());
     }
     // Checking if the move is valid, if then move
     public void valid_move(Board b, int s) {
+//    	System.out.println("robot moved by " + s);
     	if(getDir() == 0) { //left
-    		if(getRobotx() - s < 0) {
+    		if(getRobotx() - s >= 0) {
     			setRobotx(getRobotx() - s);
+    			System.out.println("moved left " + s);
     		}
     	} else if(getDir() == 1) { //down
     		if(getRoboty() + s < b.height()) {
     			setRoboty(getRoboty() + s);
+    			System.out.println("moved down " + s);
+
     		}
     	} else if(getDir() == 2) { //right
     		if(getRobotx() + s < b.width()) {
     			setRobotx(getRobotx() + s);
+    			System.out.println("moved right " + s);
+
     		}
     	} else if(getDir() == 3) { //up
-    		if(getRoboty() - s < 0) {
+    		if(getRoboty() - s >= 0) {
     			setRoboty(getRoboty() - s);
+    			System.out.println("moved up " + s);
+
     		}
     	} else {
     		System.out.println("invalid move");
@@ -103,11 +112,11 @@ public class Robot {
     	}
     }
     
-    public void damage(int i) {
-    	setLives(lives - i);
-    	if(lives<=0) {
-    		//kill robot
-    		g.kill(this);
-    	}
-    }
+//    public void damage(int i) {
+//    	setLives(lives - i);
+//    	if(lives<=0) {
+//    		//kill robot
+//    		g.kill(this);
+//    	}
+//    }
 }

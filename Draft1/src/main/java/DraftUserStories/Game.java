@@ -19,6 +19,25 @@ public class Game {
 		System.out.println("Game Over!");
 	}
 	
+	public void execCards(Player p, Robot r, Board b) {
+		for(int i = 0; i<4; i++) {
+			if(p.getHand(i).equals("Move 1") ) {
+				r.valid_move(b, 1);
+			} else if(p.getHand(i).equals("Move 2")) {
+				r.valid_move(b, 2);
+			} else if(p.getHand(i).equals("Move 3")) {
+				r.valid_move(b, 3);
+			} else if(p.getHand(i).equals("Rotate Left")) {
+				r.rotate(1);
+			} else if(p.getHand(i).equals("Rotate Right")) {
+				r.rotate(3);
+			} else if(p.getHand(i).equals("U-turn")) {
+				r.rotate(2);
+			} else {
+				System.out.println("error");
+			}
+		}
+	}
 	
 //	public void startGame() {
 //		

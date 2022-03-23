@@ -36,4 +36,8 @@ public class Player {
 		}
 	}
 	
+	public String getHand(int i) {
+		return hand.get(i);
+	}
+	
 }
