@@ -5,9 +5,10 @@ public class ObstacleCheck {
 	Robot r = new Robot();
 	Board b = new Board();
 	Player p = new Player();
+	Game g = new Game();
 	
-	private String tileOn = b.getTileUnder(r.getRobotx(), r.getRoboty());
-	private String tileFront = b.getTileFront(r.getRobotx(), r.getRoboty(), r.getDirection());
+	private String tileOn = r.getTileUnder(b);
+	private String tileFront = r.getTileFront(b);
 	
 	
 	@Given //assigned tileUnder to local variable "tileOn" instead of repeating
@@ -24,7 +25,7 @@ public class ObstacleCheck {
 	@When("the tile under is acid")
 	public void the_tile_under_is_acid() {
 	    if(tileOn == "acid") {
-	    	r.skipTurn();
+	    	g.skipTurn();
 	    }
 	}
 	
@@ -40,6 +41,20 @@ public class ObstacleCheck {
 	public void the_tile_under_is_a_laser() {
 	    if(tileOn == "laser") {
 	    	r.damage(1);
+	    }
+	}
+	
+	@When("the tile under is a pit")
+	public void the_tile_under_is_a_pit() {
+	    if(tileOn == "pit") {
+	    	r.damage(100);
+	    }
+	}
+	
+	@When("the tile under is a healthpack")
+	public void the_tile_under_is_a_healthpack() {
+	    if(tileOn == "hp") {
+	    	r.damage(-1);
 	    }
 	}
 	

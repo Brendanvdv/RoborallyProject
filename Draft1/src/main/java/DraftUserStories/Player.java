@@ -1,9 +1,10 @@
 package DraftUserStories;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Player {
 	private boolean playerNumber1 = false;
-	private String[] hand = new String[4];
+	private ArrayList<String> hand = new ArrayList<String>();
 	Scanner s = new Scanner(System.in);
 	
 	public void printPlayer() {
@@ -27,7 +28,11 @@ public class Player {
 		for(int i = 0; i < 4; i++) {
 			System.out.print("Select cards in order: ");
 			int x = s.nextInt();
-			hand[i] = c.getCard()[x];
+			hand.add(c.getCard(x));
+			c.rmv(x);
+			c.printCard();
+			System.out.println(hand.get(i));
+			
 		}
 	}
 	
