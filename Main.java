@@ -1,5 +1,6 @@
 package amirrobot;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.io.IOException;
@@ -24,28 +25,61 @@ public class Main {
 
 	c.makeCards();
 	c.printCard();
-		
-	
-	Panel pnl = new Panel(b,r);
-        JFrame frame = new JFrame("The Board");
-        frame.add(pnl);
-        frame.setSize(700,700);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-	
-
 	
 	Buttons bt = new Buttons(p,c);
-	bt.setSize(300, 300);
-	bt.setVisible(true);
+	
+	
+        JFrame frame = new JFrame("The Board");
+        
+        frame.setLayout(new FlowLayout(FlowLayout.CENTER));
+        
+        
+
+	Panel pnl = new Panel(b,r);
+	frame.add(pnl);
+	
+	frame.add(bt);
+        
+        frame.setSize(1000,700);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        
+        
+        
+
 
 	do {
 	    System.out.print("");
 	} while(!bt.isReady());
 	
+	frame.remove(bt);
+	frame.remove(pnl);
+	
 	p.readHand(bt);
 
 	g.execCards(p, r, b);
+	
+	frame.setVisible(false);
+	Panel pnl1 = new Panel(b,r);
+	frame.add(pnl1);
+	frame.setVisible(true);
+		
+	
+	
+	
+
+	
+//	Buttons bt = new Buttons(p,c);
+//	bt.setSize(300, 300);
+//	bt.setVisible(true);
+//
+//	do {
+//	    System.out.print("");
+//	} while(!bt.isReady());
+//	
+//	p.readHand(bt);
+//
+//	g.execCards(p, r, b);
 
 	
 

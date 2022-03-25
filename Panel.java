@@ -64,6 +64,7 @@ public class Panel extends JPanel {
 	tiles = new JLabel[b.width()][b.height()];
 	createTiles(b,r);
 	loadTiles();
+	setPreferredSize(new Dimension(600,600));
     }
 
     public void loadTiles() {

@@ -14,7 +14,7 @@ import javax.swing.*;
 
 import references.JButtonExample.buttonAction;    
 
-public class Buttons extends JFrame {   
+public class Buttons extends JPanel {   
     private static final long serialVersionUID = 3023910913543183787L;
 
     private ArrayList<String> carbut = new ArrayList<String>();
@@ -27,10 +27,11 @@ public class Buttons extends JFrame {
     JButton[] buttons = new JButton[] {b0,b1,b2,b3,b4,b5,b6,b7,b8};
 
     Buttons(Player p, Card c) {
-	super("Choose your card");
+//	super("Choose your card");
+	super();
 	setLayout(new GridLayout(3, 3));
 	makeButtons(p,c);
-
+	setPreferredSize(new Dimension(300,300));
     }
 
     public void makeButtons(Player p, Card c) {
