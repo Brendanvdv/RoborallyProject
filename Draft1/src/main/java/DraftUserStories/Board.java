@@ -1,12 +1,23 @@
 package DraftUserStories;
 
-public class Board {
+import finalMainFiles.ResponseMessageV2;
 
+public class Board {
+	
     private String[][] b;
 
-    Board(int x, int y) {
+    ResponseMessageV2 response;
+    
+    public Board(int x, int y) {
 	b = new String[x][y];
+	
+	response.setMessage("board defined");
     }
+    
+    public ResponseMessageV2 getResponse() {
+    	return response;
+    }
+    
     // making the board and checkpoint but not printing
     public void makeBoard() {
 	for (int j = 0; j < b.length; j++) {
@@ -36,6 +47,8 @@ public class Board {
 	// checkpoint 
 	b[(int) Math.ceil(b.length/2)][(int) Math.ceil(b[0].length/2)] = "*";
 
+	
+	
     }
     // printing the board
     public void printBoard() {
