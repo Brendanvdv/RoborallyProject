@@ -4,7 +4,7 @@ public class Board {
 
     private String[][] b;
 
-    Board(int x, int y) {
+    public Board(int x, int y) {
 	b = new String[x][y];
     }
     // making the board and checkpoint but not printing
